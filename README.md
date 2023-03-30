@@ -1,0 +1,1 @@
+# mcuboot_stm32g0b1
