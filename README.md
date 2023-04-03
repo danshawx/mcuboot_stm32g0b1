@@ -30,7 +30,7 @@ python imgtool.py sign --header-size 0x200 --align 4 --slot-size 0x20000 --versi
 - app Upgrade Slot:
 ```
 python imgtool.py sign --header-size 0x200 --align 4 --slot-size 0x20000 --version 1.0.0 --pad-header C:\xd\demo\my_demo\mcuboot_test\test_bms_boot.bin C:\xd\demo\my_demo\mcuboot_test\test_bms_boot_trailer_signed.bin
-
+```
 
 ## choose swap type from application
 ```
