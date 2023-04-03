@@ -27,12 +27,17 @@ The imgtool sign command can be used to add the MCUboot Image header and trailer
 python imgtool.py sign --header-size 0x200 --align 4 --slot-size 0x20000 --version 1.0.0 --pad-header C:\xd\demo\my_demo\mcuboot_test\test_bms_boot.bin C:\xd\demo\my_demo\mcuboot_test\test_bms_boot_signed.bin
 ```
 
-- app Upgrade Slot (This slot must have image head and image trailer):
+- app Upgrade Slot:
 ```
-python imgtool.py sign --header-size 0x200 --align 4 --slot-size 0x20000 --version 1.0.0 --pad-header --pad C:\xd\demo\my_demo\mcuboot_test\test_bms_boot.bin C:\xd\demo\my_demo\mcuboot_test\test_bms_boot_trailer_signed.bin
- ```
+python imgtool.py sign --header-size 0x200 --align 4 --slot-size 0x20000 --version 1.0.0 --pad-header C:\xd\demo\my_demo\mcuboot_test\test_bms_boot.bin C:\xd\demo\my_demo\mcuboot_test\test_bms_boot_trailer_signed.bin
 
-![image trailer](\\app_upgrade_bin_image_trailer.png)
+
+## choose swap type from application
+```
+// permanent = 0 swap type:BOOT_SWAP_TYPE_TEST
+// permanent = 1 swap type:BOOT_SWAP_TYPE_PERM 
+int boot_set_pending(int permanent);
+```
 
 ## code execution flow
 ```
@@ -46,6 +51,12 @@ boot_go
                             boot_read_swap_state
 ```
 
+## other command
+- app Upgrade Slot (This slot has image head and image trailer):
+```
+python imgtool.py sign --header-size 0x200 --align 4 --slot-size 0x20000 --version 1.0.0 --pad-header --pad C:\xd\demo\my_demo\mcuboot_test\test_bms_boot.bin C:\xd\demo\my_demo\mcuboot_test\test_bms_boot_trailer_signed.bin
+```
+![image trailer](\\app_upgrade_bin_image_trailer.png)
 
 ## Reference
 [MCUboot Walkthrough and Porting Guide](https://interrupt.memfault.com/blog/mcuboot-overview)
