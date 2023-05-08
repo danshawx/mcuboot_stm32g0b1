@@ -1,4 +1,6 @@
 # mcuboot_stm32g0b1
+## Description
+mcuboot supports stm32g0b1
 
 ## flash map
 |slot                |flash Area Id     |Start       |End           |Size |
